@@ -5,8 +5,8 @@ export default function App() {
   const [tasks, setTasks] = useState<Task[]>([
     { id: '1', title: 'Setup', completed: true },
     { id: '2', title: 'Entities', completed: false },
-    { id: '3', title: 'Paging, Sorting and Filtering', completed: false },
-    { id: '4', title: 'CRUD Operations', completed: false },
+    { id: '3', title: 'CRUD Operations', completed: false },
+    { id: '4', title: 'Paging, Sorting and Filtering', completed: false },
     { id: '5', title: 'Live Query', completed: false },
     { id: '6', title: 'Validation', completed: false },
     { id: '7', title: 'Updating multiple tasks', completed: false },
