@@ -4,6 +4,7 @@ import App from './App'
 
 export default function Auth() {
   const [currentUser, setCurrentUser] = useState<UserInfo>()
+  const [showSignIn, setShowSignIn] = useState(false)
   remult.user = currentUser
 
   async function signIn(f: FormEvent<HTMLFormElement>) {
@@ -17,6 +18,7 @@ export default function Auth() {
     })
     if (result.ok) {
       setCurrentUser(await result.json())
+      setShowSignIn(false)
     } else alert(await result.json())
   }
   async function signOut() {
@@ -33,7 +35,7 @@ export default function Auth() {
       })
   }, [])
 
-  if (!currentUser)
+  if (showSignIn)
     return (
       <>
         <main className="sign-in">
@@ -46,13 +48,19 @@ export default function Auth() {
         </main>
       </>
     )
+
   return (
     <>
       <div>
-        Hello {currentUser?.name} <button onClick={signOut}>Sign Out</button>
+        Hello {currentUser?.name}{' '}
+        {!currentUser ? (
+          <button onClick={() => setShowSignIn(true)}>Sign In</button>
+        ) : (
+          <button onClick={signOut}>Sign Out</button>
+        )}
       </div>
+
       <App />
-      <a href="https://www.github.com/remult/remult">give remult a ⭐</a>
     </>
   )
 }
