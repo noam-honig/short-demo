@@ -1,4 +1,4 @@
-# Todo app
+# NDC London 2024 Workshop
 
 ```ts
 git clone https://github.com/noam-honig/ndc-2024
