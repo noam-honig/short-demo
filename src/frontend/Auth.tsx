@@ -11,6 +11,9 @@ export default function Auth() {
     const result = await fetch('/api/signIn', {
       method: 'POST',
       body: JSON.stringify(Object.fromEntries(new FormData(f.currentTarget))),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
     if (result.ok) {
       setCurrentUser(await result.json())
