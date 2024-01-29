@@ -26,6 +26,7 @@ export default function Auth() {
       method: 'POST',
     })
     setCurrentUser(undefined)
+    setShowSignIn(true)
   }
   useEffect(() => {
     fetch('/api/currentUser')
